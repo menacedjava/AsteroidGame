@@ -31,41 +31,41 @@ public class AsteroidsGame extends JPanel implements ActionListener, KeyListener
         for (int i = 0; i < 5; i++) spawnAsteroid();
     }
 
-//    private void spawnAsteroid() {
-//        asteroids.add(new Asteroid(random.nextInt(600), random.nextInt(600), random.nextInt(4) - 2, random.nextInt(4) - 2));
-//    }
+    private void spawnAsteroid() {
+        asteroids.add(new Asteroid(random.nextInt(600), random.nextInt(600), random.nextInt(4) - 2, random.nextInt(4) - 2));
+    }
 
-//    @Override
-//    protected void paintComponent(Graphics g) {
-//        super.paintComponent(g);
-//        g.setColor(Color.WHITE);
-//        int x1 = (int) (shipX + Math.cos(Math.toRadians(shipAngle)) * 20);
-//        int y1 = (int) (shipY + Math.sin(Math.toRadians(shipAngle)) * 20);
-//        int x2 = (int) (shipX + Math.cos(Math.toRadians(shipAngle + 140)) * 20);
-//        int y2 = (int) (shipY + Math.sin(Math.toRadians(shipAngle + 140)) * 20);
-//        int x3 = (int) (shipX + Math.cos(Math.toRadians(shipAngle - 140)) * 20);
-//        int y3 = (int) (shipY + Math.sin(Math.toRadians(shipAngle - 140)) * 20);
-//        g.drawPolygon(new int[]{x1, x2, x3}, new int[]{y1, y2, y3}, 3);
-//        for (Bullet bullet : bullets) g.fillOval(bullet.x, bullet.y, 5, 5);
-//        g.setColor(Color.RED);
-//        for (Asteroid asteroid : asteroids) g.fillOval(asteroid.x, asteroid.y, 30, 30);
-//    }
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(Color.WHITE);
+        int x1 = (int) (shipX + Math.cos(Math.toRadians(shipAngle)) * 20);
+        int y1 = (int) (shipY + Math.sin(Math.toRadians(shipAngle)) * 20);
+        int x2 = (int) (shipX + Math.cos(Math.toRadians(shipAngle + 140)) * 20);
+        int y2 = (int) (shipY + Math.sin(Math.toRadians(shipAngle + 140)) * 20);
+        int x3 = (int) (shipX + Math.cos(Math.toRadians(shipAngle - 140)) * 20);
+        int y3 = (int) (shipY + Math.sin(Math.toRadians(shipAngle - 140)) * 20);
+        g.drawPolygon(new int[]{x1, x2, x3}, new int[]{y1, y2, y3}, 3);
+        for (Bullet bullet : bullets) g.fillOval(bullet.x, bullet.y, 5, 5);
+        g.setColor(Color.RED);
+        for (Asteroid asteroid : asteroids) g.fillOval(asteroid.x, asteroid.y, 30, 30);
+    }
 
-//    @Override
-//    public void actionPerformed(ActionEvent e) {
-//        shipX += shipSpeed * Math.cos(Math.toRadians(shipAngle));
-//        shipY += shipSpeed * Math.sin(Math.toRadians(shipAngle));
-//        if (shipX < 0) shipX = 600;
-//        if (shipX > 600) shipX = 0;
-//        if (shipY < 0) shipY = 600;
-//        if (shipY > 600) shipY = 0;
-//        Iterator<Bullet> bulletIterator = bullets.iterator();
-//        while (bulletIterator.hasNext()) {
-//            Bullet bullet = bulletIterator.next();
-//            bullet.x += bullet.speed * Math.cos(Math.toRadians(bullet.angle));
-//            bullet.y += bullet.speed * Math.sin(Math.toRadians(bullet.angle));
-//            if (bullet.x < 0 || bullet.x > 600 || bullet.y < 0 || bullet.y > 600) bulletIterator.remove();
-//        }
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        shipX += shipSpeed * Math.cos(Math.toRadians(shipAngle));
+        shipY += shipSpeed * Math.sin(Math.toRadians(shipAngle));
+        if (shipX < 0) shipX = 600;
+        if (shipX > 600) shipX = 0;
+        if (shipY < 0) shipY = 600;
+        if (shipY > 600) shipY = 0;
+        Iterator<Bullet> bulletIterator = bullets.iterator();
+        while (bulletIterator.hasNext()) {
+            Bullet bullet = bulletIterator.next();
+            bullet.x += bullet.speed * Math.cos(Math.toRadians(bullet.angle));
+            bullet.y += bullet.speed * Math.sin(Math.toRadians(bullet.angle));
+            if (bullet.x < 0 || bullet.x > 600 || bullet.y < 0 || bullet.y > 600) bulletIterator.remove();
+        }
 //        Iterator<Asteroid> asteroidIterator = asteroids.iterator();
 //        while (asteroidIterator.hasNext()) {
 //            Asteroid asteroid = asteroidIterator.next();
