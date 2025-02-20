@@ -113,6 +113,7 @@ public class AsteroidsGame extends JPanel implements ActionListener, KeyListener
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
+        System.out.println("Good luck ");
     }
 
 }
