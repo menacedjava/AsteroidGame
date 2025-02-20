@@ -66,44 +66,44 @@ public class AsteroidsGame extends JPanel implements ActionListener, KeyListener
             bullet.y += bullet.speed * Math.sin(Math.toRadians(bullet.angle));
             if (bullet.x < 0 || bullet.x > 600 || bullet.y < 0 || bullet.y > 600) bulletIterator.remove();
         }
-//        Iterator<Asteroid> asteroidIterator = asteroids.iterator();
-//        while (asteroidIterator.hasNext()) {
-//            Asteroid asteroid = asteroidIterator.next();
-//            asteroid.x += asteroid.dx;
-//            asteroid.y += asteroid.dy;
-//            if (asteroid.x < 0) asteroid.x = 600;
-//            if (asteroid.x > 600) asteroid.x = 0;
-//            if (asteroid.y < 0) asteroid.y = 600;
-//            if (asteroid.y > 600) asteroid.y = 0;
-//            bulletIterator = bullets.iterator();
-//            while (bulletIterator.hasNext()) {
-//                Bullet bullet = bulletIterator.next();
-//                if (new Rectangle(asteroid.x, asteroid.y, 30, 30).intersects(new Rectangle(bullet.x, bullet.y, 5, 5))) {
-//                    bulletIterator.remove();
-//                    asteroidIterator.remove();
-//                    spawnAsteroid();
-//                    break;
-//                }
-//            }
-//        }
-//        repaint();
-//    }
+        Iterator<Asteroid> asteroidIterator = asteroids.iterator();
+        while (asteroidIterator.hasNext()) {
+            Asteroid asteroid = asteroidIterator.next();
+            asteroid.x += asteroid.dx;
+            asteroid.y += asteroid.dy;
+            if (asteroid.x < 0) asteroid.x = 600;
+            if (asteroid.x > 600) asteroid.x = 0;
+            if (asteroid.y < 0) asteroid.y = 600;
+            if (asteroid.y > 600) asteroid.y = 0;
+            bulletIterator = bullets.iterator();
+            while (bulletIterator.hasNext()) {
+                Bullet bullet = bulletIterator.next();
+                if (new Rectangle(asteroid.x, asteroid.y, 30, 30).intersects(new Rectangle(bullet.x, bullet.y, 5, 5))) {
+                    bulletIterator.remove();
+                    asteroidIterator.remove();
+                    spawnAsteroid();
+                    break;
+                }
+            }
+        }
+        repaint();
+    }
 
-//    @Override
-//    public void keyPressed(KeyEvent e) {
-//        if (e.getKeyCode() == KeyEvent.VK_LEFT) shipAngle -= 10;
-//        if (e.getKeyCode() == KeyEvent.VK_RIGHT) shipAngle += 10;
-//        if (e.getKeyCode() == KeyEvent.VK_UP) shipSpeed = 5;
-//        if (e.getKeyCode() == KeyEvent.VK_DOWN) shipSpeed = 0;
-//        if (e.getKeyCode() == KeyEvent.VK_SPACE) bullets.add(new Bullet(shipX, shipY, shipAngle));
-//    }
+    @Override
+    public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_LEFT) shipAngle -= 10;
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT) shipAngle += 10;
+        if (e.getKeyCode() == KeyEvent.VK_UP) shipSpeed = 5;
+        if (e.getKeyCode() == KeyEvent.VK_DOWN) shipSpeed = 0;
+        if (e.getKeyCode() == KeyEvent.VK_SPACE) bullets.add(new Bullet(shipX, shipY, shipAngle));
+    }
 
-//    @Override
-//    public void keyReleased(KeyEvent e) {}
-//
-//    @Override
-//    public void keyTyped(KeyEvent e) {}
-/*
+    @Override
+    public void keyReleased(KeyEvent e) {}
+
+    @Override
+    public void keyTyped(KeyEvent e) {}
+
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("Asteroids Game");
@@ -114,5 +114,5 @@ public class AsteroidsGame extends JPanel implements ActionListener, KeyListener
         frame.setVisible(true);
         frame.setLocationRelativeTo(null);
     }
- */
+
 }
